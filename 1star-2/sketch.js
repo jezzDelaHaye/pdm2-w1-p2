@@ -11,20 +11,17 @@ function setup()
 
 function draw()
 {
-    /*
-    for (let i = 0; i > pressedCount; i++)
-    {
-        ellipse(random(400),random(400),50)
-        console.log('circle')
-    }
-        */
-
+   
 }
 
 function mousePressed()
 {
+    background(255)
     pressedCount++;
-    
+    for (let i =0; i < pressedCount; i ++)
+    {
+        ellipse(random(400),random(400),50)
+    }
 }
 
 function fillSets()
