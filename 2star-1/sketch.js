@@ -87,25 +87,14 @@ function keyPressed()
         {
             for(let j = i + 1; j < columns.length; j++)
             {
-                if (ascending === true)
+                
+                if (columns[i].width > columns[j].width)
                 {
-                    if (columns[i].width < columns[j].width)
-                    {
-                        let temp = columns[i];
-                        columns[i] = columns[j]
-                        columns[j] = temp;
-                    } 
-                }
-
-                else 
-                {
-                    if (columns[i].width > columns[j].width)
-                    {
-                        let temp = columns[i];
-                        columns[i] = columns[j]
-                        columns[j] = temp;
-                    } 
-                }
+                    let temp = columns[i];
+                    columns[i] = columns[j]
+                    columns[j] = temp;
+                } 
+                
                            
             }
         }
@@ -159,10 +148,23 @@ function orderChange()
     {
         ascending = false;
         orderText = 'decending'
+        let temp = []
+        for (let i = columns.length-1; i <= 0; i--)
+        {
+            temp.push(columns[i])
+        }
+        columns = temp;
+    
     }
     else
     {
         ascending = true;
         orderText = 'acending'
+        let temp = []
+        for (let i = 0; i < columns.length; i++)
+        {
+            temp.push(columns[i])
+        }
+        columns = temp;
     }
 }
